@@ -45,6 +45,8 @@ To show a graph with networkx,
 $ python directed_graph.py
 ```
 
+![networkx](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hippocampal_connection_graph1.png)
+
 If you have Gephi,
 
 this provides a csv file which can use on it.
@@ -52,3 +54,6 @@ this provides a csv file which can use on it.
 ```
 $ python extract_gephi_csv.py
 ```
+
+
+![networkx](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hippocampal_connection_graph2.png)
