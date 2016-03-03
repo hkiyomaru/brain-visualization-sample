@@ -49,7 +49,7 @@ You should get a graph like this.
 
 ![networkx](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hippocampal_connection_graph1.png)
 
-This graph represents the relation between cells in the hippocampal formation and other cells.
+Fig1. This graph represents the relation between cells in the hippocampal formation and other cells.
 
 ###Gephi
 
@@ -69,10 +69,10 @@ you can show a graph like this.
 
 ![gephi](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hippocampal_connection_graph2.png)
 
-What this graph represents is the same as the before graph.
+Fig2. What this graph represents is the same as the before graph.
 
 And the part of the graph expanded is this.
 
 ![gephi_expanded](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hippocampal_connection_graph3.png)
 
-You can show a direction between cells. (Look ECT)
+Fig3. You can show a direction between cells. (Look ECT)
