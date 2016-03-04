@@ -1,5 +1,14 @@
 import argparse
+import csv
 from read_csv import Readcsv
+
+write_dir = './gephi/'
+
+def extract_csv_for_gephi(conn_list, write_path):
+    writer = csv.writer(open(write_path, "ab"))
+    for f in conn_list:
+        appendList = list(f)
+        writer.writerow(appendList)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -8,6 +17,8 @@ if __name__ == '__main__':
 
     query = parser.parse_args().query
     path = parser.parse_args().path
+    write_path = write_dir + query + ".csv"
 
     csv_reader = Readcsv(query, path)
-    csv_reader.extract_csv()
+    conn_list = csv_reader.get_conn()
+    extract_csv_for_gephi(conn_list, write_path)
