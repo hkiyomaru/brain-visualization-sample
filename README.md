@@ -1,7 +1,7 @@
 #Visualization of brain cells and their links
 
 
-###Instruction
+##Instruction
 
 First, clone this repository.
 
@@ -19,16 +19,14 @@ so you should install them.
 $ pip install -r requirements.txt
 ```
 
-If you use pyenv,
-
-this works well, too.
+If you use pyenv, this works well, too.
 
 ```
 $ pyenv install anaconda-2.3.0
 $ pyenv local anaconda-2.3.0
 ```
 
-###Preparation of datasets
+##Preparation of datasets
 
 Download two datasets to the datasets directory.
 
@@ -37,7 +35,7 @@ Download two datasets to the datasets directory.
 
 And __save them as csv files__ in the same directory.
 
-###Run
+##Run
 
 To show a graph with networkx,
 
@@ -49,9 +47,9 @@ You should get a graph like this.
 
 ![networkx](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hippocampal_connection_graph1.png)
 
-Fig1. This graph represents the relation between cells in the hippocampal formation and other cells.
+Fig1. This graph represents the relation between cells in the hippocampal formation.
 
-###Gephi
+##Gephi
 
 [Gephi](https://gephi.org/) is one of the most famous visualization softwares.
 
@@ -75,12 +73,12 @@ Fig2. What this graph represents is the same as the before graph.
 
 This is the graph I tweaked.
 
-![gephi_expanded](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hf2hf.png)
+![gephi_tweaked](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hf2hf.png)
 
 Fig3. Sophisticatied graph
 
 
-###Runtime options
+##Runtime options
 
 When you execute
 
