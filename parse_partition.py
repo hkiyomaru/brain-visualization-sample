@@ -1,9 +1,9 @@
-from get_records import GetRecords 
+from get_records import GetRecords
 
-class ParsePartition:
-    def __init__(self):
-        r = GetRecords()
-        self.records = r.get_records()
+class ParsePartition(GetRecords):
+    def __init__(self, query, path):
+        GetRecords.__init__(self, query, path)
+        self.records = self.get_records()
 
     def parse_partition(self):
         partitions = []
@@ -12,5 +12,5 @@ class ParsePartition:
         return partitions
 
 if __name__ == "__main__":
-    parser = ParsePartition()
+    parser = ParsePartition("Hippocampal", "datasets/nature13186-s2.csv")
     print parser.parse_partition()

@@ -2,30 +2,30 @@ import csv
 import numpy as np
 from parse_partition import ParsePartition
 
-filepath = "datasets/nature13186-s4.csv"
 gephi_csv = './gephi/gephi.csv'
+link_data_path="datasets/nature13186-s4.csv"
 
-class Readcsv:
-    def __init__(self, path=filepath):
-        self.path = path
+class Readcsv(ParsePartition):
+    def __init__(self, query, path):
+        ParsePartition.__init__(self, query, path)
+        self.ldpath = link_data_path
         self.initialize()
 
     def initialize(self):
-        reader = csv.reader(open(self.path, 'r'))
+        reader = csv.reader(open(self.ldpath, 'r'))
         array = []
         self.header = next(reader)[1:]
         for row in reader:
             array.append(row[1:])
         self.array = np.array(array)
         self.conn_list = []
-        target_reader = ParsePartition()
-        targets = target_reader.parse_partition()
+        targets = self.parse_partition()
         self.set_conn(self.array, targets)
         self.set_conn(self.array.T, targets)
         
     def set_conn(self, array, targets):
         rn = 0
-        for row in self.array:
+        for row in array:
             if self.header[rn] not in targets:
                 pass
             else:
@@ -47,6 +47,6 @@ class Readcsv:
             writer.writerow(appendList)
 
 if __name__ == '__main__':
-    csv_reader = Readcsv()
+    csv_reader = Readcsv("Hippocampal", "datasets/nature13186-s2.csv")
     print csv_reader.get_conn()
     # csv_reader.extract_csv()

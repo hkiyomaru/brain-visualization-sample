@@ -2,7 +2,7 @@ import commands
 import argparse
 
 class GetRecords:
-    def __init__(self, query="Hippocampal", path="datasets/nature13186-s2.csv"):
+    def __init__(self, query, path):
         self.query = str(query)
         self.path = str(path)
 
@@ -14,5 +14,5 @@ class GetRecords:
         return output
 
 if __name__ == "__main__":
-    records = GetRecords()
+    records = GetRecords("Hippocampal", "datasets/nature13186-s2.csv")
     print records.get_records()
