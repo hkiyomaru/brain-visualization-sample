@@ -3,7 +3,7 @@ import numpy as np
 from parse_partition import ParsePartition
 
 filepath = "datasets/nature13186-s4.csv"
-gephi_csv = './gephi.csv'
+gephi_csv = './gephi/gephi.csv'
 
 class Readcsv:
     def __init__(self, path=filepath):
@@ -31,8 +31,9 @@ class Readcsv:
             else:
                 cn = 0
                 for tf in row:
-                    if tf != '0':
-                        self.conn_list.append((self.header[rn], self.header[cn]))
+                    if self.header[cn] in targets:
+                        if tf != '0':
+                            self.conn_list.append((self.header[rn], self.header[cn]))
                     cn += 1
             rn += 1
 
