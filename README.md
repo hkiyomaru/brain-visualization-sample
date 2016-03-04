@@ -73,8 +73,8 @@ You can show a graph like this.
 
 Fig2. What this graph represents is the same as the before graph.
 
-And the part of the graph expanded is this.
+This is the graph I tweaked.
 
-![gephi_expanded](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hippocampal_connection_graph3.png)
+![gephi_expanded](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hf2hf.png)
 
-Fig3. You can show a direction between cells. (Look ECT)
+Fig3. Sophisticatied graph
