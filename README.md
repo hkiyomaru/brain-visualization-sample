@@ -63,9 +63,11 @@ this provides a csv file which can use on it.
 $ python extract_gephi_csv.py
 ```
 
-Open the file created by this command with Gephi,
+The file created by this command will be saved in the gephi directory.
 
-you can show a graph like this.
+Open it with Gephi.
+
+You can show a graph like this.
 
 ![gephi](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hippocampal_connection_graph2.png)
 
