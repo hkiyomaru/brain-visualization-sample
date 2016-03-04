@@ -2,7 +2,6 @@ import csv
 import numpy as np
 from parse_partition import ParsePartition
 
-gephi_csv = './gephi/gephi.csv'
 link_data_path="datasets/nature13186-s4.csv"
 
 class Readcsv(ParsePartition):
@@ -40,13 +39,7 @@ class Readcsv(ParsePartition):
     def get_conn(self): #for networkx
         return self.conn_list
 
-    def extract_csv(self): #for gephi
-        writer = csv.writer(open(gephi_csv, "ab"))
-        for f in self.conn_list:
-            appendList = list(f)
-            writer.writerow(appendList)
-
 if __name__ == '__main__':
     csv_reader = Readcsv("Hippocampal", "datasets/nature13186-s2.csv")
     print csv_reader.get_conn()
-    # csv_reader.extract_csv()
+
