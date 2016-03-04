@@ -14,11 +14,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-query', action='store',dest='query',default='Hippocampal')
     parser.add_argument('-path', action='store', dest='path', default="datasets/nature13186-s2.csv")
+    parser.add_argument('-external', action='store_true', dest='external')
 
     query = parser.parse_args().query
     path = parser.parse_args().path
-    write_path = write_dir + query + ".csv"
+    external = parser.parse_args().external
+    conn_status = "_external" if external else "_internal"
+    write_path = write_dir + query + conn_status + ".csv"
 
-    csv_reader = Readcsv(query, path)
+    csv_reader = Readcsv(query, path, external)
     conn_list = csv_reader.get_conn()
     extract_csv_for_gephi(conn_list, write_path)

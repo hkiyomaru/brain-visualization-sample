@@ -5,8 +5,9 @@ from parse_partition import ParsePartition
 link_data_path="datasets/nature13186-s4.csv"
 
 class Readcsv(ParsePartition):
-    def __init__(self, query, path):
+    def __init__(self, query, path, external):
         ParsePartition.__init__(self, query, path)
+        self.external = external
         self.ldpath = link_data_path
         self.initialize()
 
@@ -19,10 +20,27 @@ class Readcsv(ParsePartition):
         self.array = np.array(array)
         self.conn_list = []
         targets = self.parse_partition()
-        self.set_conn(self.array, targets)
-        self.set_conn(self.array.T, targets)
-        
-    def set_conn(self, array, targets):
+        if self.external:
+            self.set_external_conn(self.array, targets)
+            self.set_external_conn(self.array.T, targets)
+        else:
+            self.set_internal_conn(self.array, targets)
+            self.set_internal_conn(self.array.T, targets)
+
+    def set_external_conn(self, array, targets):
+        rn = 0
+        for row in array:
+            if self.header[rn] not in targets:
+                pass
+            else:
+                cn = 0
+                for tf in row:
+                    if tf != '0':
+                        self.conn_list.append((self.header[rn], self.header[cn]))
+                    cn += 1
+            rn += 1
+
+    def set_internal_conn(self, array, targets):
         rn = 0
         for row in array:
             if self.header[rn] not in targets:
@@ -36,10 +54,11 @@ class Readcsv(ParsePartition):
                     cn += 1
             rn += 1
 
+
     def get_conn(self): #for networkx
         return self.conn_list
 
 if __name__ == '__main__':
-    csv_reader = Readcsv("Hippocampal", "datasets/nature13186-s2.csv")
+    csv_reader = Readcsv("Hippocampal", "datasets/nature13186-s2.csv", False)
     print csv_reader.get_conn()
 
