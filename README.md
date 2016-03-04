@@ -1,4 +1,4 @@
-#Visualize sample
+#Visualization of brain cells and their links
 
 
 ###Instruction
@@ -78,3 +78,44 @@ This is the graph I tweaked.
 ![gephi_expanded](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hf2hf.png)
 
 Fig3. Sophisticatied graph
+
+
+###Runtime options
+
+When you execute
+
+```
+$ python directed_graph.py
+```
+or
+```
+$ python extract_gephi_csv.py
+``` 
+
+, you can use three options at run time.
+
+####1. Change query
+
+```
+$ python extract_gephi_csv.py -query QUERY_STRING
+```
+
+By default, the query is "Hippocampal".
+
+####2. Change query file path
+
+```
+$ python extract_gephi_csv.py -path QUERY_FILE_PATH
+```
+
+By default, the query is "datasets/nature13186-s2.csv".
+
+####3. Select type of links between cells
+
+```
+$ python extract_gephi_csv.py -external
+```
+
+By defalt, the mode is "False".
+
+This option provide all links beyond the brain region(which is given by your query).
