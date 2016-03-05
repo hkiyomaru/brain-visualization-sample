@@ -75,7 +75,7 @@ This is the graph I tweaked.
 
 ![gephi_tweaked](https://raw.github.com/wiki/kiyomaro927/visualize_sample/images/hf2hf.png)
 
-Fig3. Sophisticatied graph
+Fig3. This is the sophisticatied graph.
 
 
 ##Runtime options
@@ -90,7 +90,7 @@ or
 $ python extract_gephi_csv.py
 ``` 
 
-, you can use three options at run time.
+you can use three options at run time.
 
 ####1. Change query
 
@@ -116,4 +116,4 @@ $ python extract_gephi_csv.py -external
 
 By defalt, the mode is "False".
 
-This option provide all links beyond the brain region(which is given by your query).
+This option provides all links beyond the brain region(which is given by your query).
