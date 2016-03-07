@@ -17,20 +17,20 @@ class Readcsv(ParsePartition):
         self.header = next(reader)[1:]
         for row in reader:
             array.append(row[1:])
-        self.array = np.array(array)
+        array = np.array(array)
         self.conn_list = []
-        targets = self.parse_partition()
+        self.targets = self.parse_partition()
         if self.external:
-            self.set_external_conn(self.array, targets)
-            self.set_external_conn(self.array.T, targets)
+            self.set_external_conn(array)
+            self.set_external_conn(array.T)
         else:
-            self.set_internal_conn(self.array, targets)
-            self.set_internal_conn(self.array.T, targets)
+            self.set_internal_conn(array)
+            self.set_internal_conn(array.T)
 
-    def set_external_conn(self, array, targets):
+    def set_external_conn(self, array):
         rn = 0
         for row in array:
-            if self.header[rn] not in targets:
+            if self.header[rn] not in self.targets:
                 pass
             else:
                 cn = 0
@@ -40,15 +40,15 @@ class Readcsv(ParsePartition):
                     cn += 1
             rn += 1
 
-    def set_internal_conn(self, array, targets):
+    def set_internal_conn(self, array):
         rn = 0
         for row in array:
-            if self.header[rn] not in targets:
+            if self.header[rn] not in self.targets:
                 pass
             else:
                 cn = 0
                 for tf in row:
-                    if self.header[cn] in targets:
+                    if self.header[cn] in self.targets:
                         if tf != '0':
                             self.conn_list.append((self.header[rn], self.header[cn]))
                     cn += 1
@@ -56,7 +56,7 @@ class Readcsv(ParsePartition):
 
 
     def get_conn(self): #for networkx
-        return self.conn_list
+        return list(set(self.conn_list))
 
 if __name__ == '__main__':
     csv_reader = Readcsv("Hippocampal", "datasets/nature13186-s2.csv", False)
