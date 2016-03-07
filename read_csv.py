@@ -22,10 +22,8 @@ class Readcsv(ParsePartition):
         self.targets = self.parse_partition()
         if self.external:
             self.set_external_conn(array)
-            self.set_external_conn(array.T)
         else:
             self.set_internal_conn(array)
-            self.set_internal_conn(array.T)
 
     def set_external_conn(self, array):
         rn = 0
