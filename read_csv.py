@@ -2,6 +2,8 @@ import csv
 import numpy as np
 from parse_partition import ParsePartition
 
+threshold = 0
+
 class Readcsv(ParsePartition):
     def __init__(self, query, path, ldpath, external):
         ParsePartition.__init__(self, query, path)
@@ -33,7 +35,7 @@ class Readcsv(ParsePartition):
             else:
                 cn = 0
                 for tf in row:
-                    if float(tf) > 0.1:
+                    if float(tf) > threshold:
                         self.conn_list.append((self.row_header[rn], self.col_header[cn]))
                     cn += 1
             rn += 1
@@ -47,7 +49,7 @@ class Readcsv(ParsePartition):
                 cn = 0
                 for tf in row:
                     if self.col_header[cn] in self.targets:
-                        if float(tf) > 0.1:
+                        if float(tf) > threshold:
                             self.conn_list.append((self.row_header[rn], self.col_header[cn]))
                     cn += 1
             rn += 1
